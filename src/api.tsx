@@ -1,17 +1,27 @@
+import axios, { AxiosError } from "axios";
+import React from "react";
 
-import type { ResponseType } from "./types";
-
-const API_URL =
-  "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json";
-
-export const getCurrencyRates = async (): Promise<ResponseType> => {
-  const response = await fetch(API_URL);
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch currency exchange rates");
-  }
-
-  const result: ResponseType = await response.json();
-
-  return result;
+type ResponseType = {
+	usd: Record<string, number>;
 };
+
+export const makeApiCallToGetData = async (): Promise<ResponseType> => {
+	try {
+		const { data } = await axios.get<ResponseType>(
+			"https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json"
+		);
+		return data;
+	} catch (error) {
+		const axiosErrorResponse = error as AxiosError<{ message: string }>;
+		throw new Error(axiosErrorResponse.response?.data?.message || "API Error");
+	}
+return (
+		<div className="flex flex-col">
+			<label htmlFor="amount_usd" className="text-sm text-black mb-1">
+				Enter USD amount:
+			</label>
+		</div>
+	)
+};
+
+export default makeApiCallToGetData;
