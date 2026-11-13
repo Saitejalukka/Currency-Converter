@@ -24,4 +24,8 @@ return (
 	)
 };
 
+<<<<<<< HEAD
 export default makeApiCallToGetData;
+=======
+export default makeApiCallToGetData;
+>>>>>>> 8b80b06a33a2053908e60997f103eee2facf84de

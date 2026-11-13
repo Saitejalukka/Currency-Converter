@@ -51,7 +51,11 @@ export const Main = () => {
 
 	return (
 		<div
+<<<<<<< HEAD
 			className="bg-cover bg-center w-[100vw] h-[100vh]"
+=======
+			className="p-4 bg-cover bg-center w-[100vw] h-[100vh]"
+>>>>>>> 8b80b06a33a2053908e60997f103eee2facf84de
 			style={{ backgroundImage: `url(${bgImage})` }}
 		>
 			<div className="grid grid-cols-1 md:grid-cols-2 h-full">
@@ -145,4 +149,8 @@ export const Main = () => {
 	);
 };
 
+<<<<<<< HEAD
 export default Main;
+=======
+export default Main;
+>>>>>>> 8b80b06a33a2053908e60997f103eee2facf84de
